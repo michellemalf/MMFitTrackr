@@ -1,0 +1,65 @@
+body {
+    background-color:white;
+    background-image: url('https://i.ibb.co/GJd4GL4/Untitled-design.png');
+    background-repeat: repeat-y;
+    box-sizing: border-box;
+    text-align: center;
+}
+#MyRoutineContainer{
+    background-color: rgb(186, 186, 221);
+    color: black;
+    height: 100%;
+    margin-left: 172px;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 85%;
+    font-family:monospace;
+    font-style: italic;
+    font-size: larger;
+}
+.MyRoutines-title{
+    font-size: 24pt;
+    font-family:monospace;
+    margin-left: 172px;
+    background-color: rgb(235, 95, 160);
+    height: 68px;
+    border: grey 5px dotted;
+
+}
+#RoutineContainer{
+    background-color: rgb(186, 186, 221);
+    margin-left: 172px;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 85%;
+    font-family:monospace;
+    font-style: italic;
+    font-size: larger;
+
+}
+.Routines-title{
+    font-size: 24pt;
+    font-family:monospace;
+    margin-left: 172px;
+    background-color: rgb(98, 211, 231);
+    height: 68px;
+    border: grey 5px dotted;
+}
+.ActivityContainer{
+    background-color: lightgray;
+    margin-left: 172px;
+    text-align: center;
+    border-radius: 5px;
+    opacity: 85%;
+    font-family:monospace;
+    font-style: italic;
+    font-size: larger;
+}
+.Activities-title{
+    font-size: 24pt;
+    font-family:monospace;
+    margin-left: 172px;
+    background-color: rgb(186, 186, 221);
+    height: 68px;
+    border: grey 5px dotted;
+}

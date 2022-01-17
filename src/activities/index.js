@@ -1,0 +1,5 @@
+export {default as AllActivities} from './AllActivities'
+export {default as CreateAct } from './CreateAct'
+export {default as EditAct } from './EditAct'
+export {default as Activity } from './Activity'
+export {default as AddActtoRout} from './AddActtoRout'
