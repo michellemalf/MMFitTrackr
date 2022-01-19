@@ -6,7 +6,17 @@ import { MyRoutine } from '.';
 const MyRoutines = ({token, userData, routineId}) => {
     const [myRoutines, setMyRoutines] = useState([]);
     const navigate= useNavigate();
-
+    
+    const deleteRoutine = async ( token, routineId) => {
+        // event.preventDefault();
+        
+        const data = await callApi({
+            url: `/routines/${routineId}`,
+            method: 'DELETE',
+            token
+        });     
+        await fetchMyRoutines();
+    }; 
     const fetchMyRoutines = async (username, token) => {
         const myRoutines = await callApi({
             url: `/users/${username}/routines`,
@@ -14,8 +24,9 @@ const MyRoutines = ({token, userData, routineId}) => {
             token
         });
         return myRoutines;
-    };
 
+    };
+  
     useEffect(async () => {
         if (userData && userData.username) {
             const fetchedMyRoutines = await fetchMyRoutines(userData.username, token);
@@ -23,18 +34,6 @@ const MyRoutines = ({token, userData, routineId}) => {
             setMyRoutines(fetchedMyRoutines);
         }
     },[userData]);
-
-    const deleteRoutine = async (event) => {
-        event.preventDefault();
-        
-        const data = await callApi({
-            url: `/routines/${routineId}`,
-            method: 'DELETE',
-            token
-        });       
-        navigate('/my_routines');
-        window.location.reload()
-    };  
 
     return <>
         <button className="LargeButton">
@@ -49,8 +48,8 @@ const MyRoutines = ({token, userData, routineId}) => {
         
                     <button>
                         <Link to={`/edit_routine/${routine.id}`}>Edit Routine</Link>
-                    </button> <br></br> <br></br>
-                    <button onClick={deleteRoutine}>Delete Routine</button>
+                    </button> 
+                    <button onClick={() =>deleteRoutine(routine.id)}>Delete Routine</button><br></br> <br></br>
                 </div>)
             })}
         </div>

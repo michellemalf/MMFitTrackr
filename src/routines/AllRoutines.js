@@ -4,7 +4,7 @@ import { Routine } from '../routines';
 import { callApi } from '../api';
 
 
-const AllRoutines = ({userData, token }) => {
+const AllRoutines = ({userData, token}) => {
     const [routines, setRoutines] = useState([]);
     const navigate = useNavigate();
 
@@ -40,10 +40,10 @@ return (
     <Routine routines={routines} routine={routine} />
     {<button>
         <Link to={`/edit_routine/${routine.id}`}>Edit Routine</Link>
-    </button>} <br></br> <br></br>
+    </button>}
     {/* {<button>
         <Link to={`/delete_routine/${routine.id}`}>Delete Routine</Link>
-    </button>} */}
+    </button>} */} <br></br><br></br>
 </div>
         
 ))}

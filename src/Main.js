@@ -39,7 +39,7 @@ export const Main = () => {
     }, [token]);
 
     return (<>
-        {!isLoggedIn && <h1>Welcome to Fitness Trackr</h1>}
+        {!isLoggedIn && <h1 className="app-title">Welcome to Fitness Trackr</h1>}
 
         {isLoggedIn ? (<>
             <div id ="Greeting">WELCOME, {userData.username}!</div>

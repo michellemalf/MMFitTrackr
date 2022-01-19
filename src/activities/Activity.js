@@ -40,20 +40,20 @@ activityToRender.username
 :
 null
 }
-<div className="Activity">Name: {activityToRender.name}</div>
-<div className="Activity">Id:{activityToRender.id}</div>
-<div className="Activity">Duration:{activityToRender.duration}</div>
-<div className="Activity">Count:{activityToRender.count}</div>
+<div className="Activity"><b>Name:</b> {activityToRender.name}</div>
+<div className="Activity"><b>Id:</b>{activityToRender.id}</div>
+<div className="Activity"><b>Duration:</b>{activityToRender.duration}</div>
+<div className="Activity"><b>Count:</b>{activityToRender.count}</div>
 
 {!activity ? <Link to="/activities">Back to Activities</Link> : null}
 
 
 {activity.activities?.map((routine) => {return  (
 <>
-<div className="Activity">Name: {routine.name}</div>
-<div className="Activity">Description: {routine.description}</div>
-<div className="Activity">Goal: {routine.goal}</div>
-<div className="Activity">Count: {routine.count}</div>
+<div className="Activity"><b>Name:</b> {routine.name}</div>
+<div className="Activity"><b>Description:</b>{routine.description}</div>
+<div className="Activity"><b>Goal:</b> {routine.goal}</div>
+<div className="Activity"><b>Count:</b>{routine.count}</div>
 
 </>
 )

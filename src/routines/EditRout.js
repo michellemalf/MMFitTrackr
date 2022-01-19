@@ -4,7 +4,7 @@ import { callApi } from '../api';
 import { AllRoutines, MyRoutines } from '../routines';
 
 
-const EditRout = ({token, routines}) => {
+const EditRout = ({token, routines, routine}) => {
     const navigate = useNavigate();
     const {routineId} = useParams();
     if (routines.length === 0) return null;
@@ -32,7 +32,7 @@ const data = await callApi({
     
 navigate('/routines');
 window.location.reload()
-// console.log(data, 'in Edit Routine')
+console.log(data, 'in Edit Routine')
 };  
 
 return (

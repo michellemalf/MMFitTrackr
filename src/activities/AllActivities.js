@@ -36,8 +36,8 @@ return (
 
 <div className = "ActivityContainer"> {activities?.map((activity) => (<div key={activity.id}>
         <Activity activities={activities} activity={activity} userData={userData} />
-        {<button> <Link to={`/edit_activity/${activity.id}`}>Edit Activity</Link></button>} <br></br> <br></br>
-        {/* {<button> <Link to={`/delete_activity/${activity.id}`}>Delete</Link></button>} */}
+        {<button> <Link to={`/edit_activity/${activity.id}`}>Edit Activity</Link></button>} 
+        {/* {<button> <Link to={`/delete_activity/${activity.id}`}>Delete</Link></button>} */} <br></br><br></br>
     </div>
                 
 ))}

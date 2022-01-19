@@ -4,7 +4,7 @@ import { callApi } from '../api';
 import { Activity, AllActivities } from '.';
 
 
-const EditAct = ({token, activities}) => {
+const EditAct = ({token, activities, activity}) => {
     const navigate = useNavigate();
     const {activityId} = useParams();
     if (activities.length === 0) return null;
