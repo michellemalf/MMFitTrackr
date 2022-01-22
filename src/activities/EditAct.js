@@ -1,23 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { callApi } from '../api';
-import { Activity, AllActivities } from '.';
 
 
-const EditAct = ({token, activities, activity}) => {
+
+const EditAct = ({token, activities, fetchAllActivities, userData, setAllActivities}) => {
+    console.log('in Edit Routine')
     const navigate = useNavigate();
     const {activityId} = useParams();
-    if (activities.length === 0) return null;
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [duration, setDuration] = useState('');
+    const [count, setCount] = useState('');
+    console.log(activities);
 
-    let activityToRender = activities.find((activity) => { 
-        return Number(activityId) === Number(activity.id)});
- 
-    const [name, setName] = useState(activityToRender.name);
-    const [description, setDescription] = useState(activityToRender.description);
-    const [duration, setDuration] = useState(activityToRender.duration);
-    const [count, setCount] = useState(activityToRender.count);
+    useEffect(async () => {
+        if (userData && userData.username) {
+            const fetchedAllActivites = await fetchAllActivities(userData.username, token);
+            console.log("Fetched Activites", fetchedAllActivites)
+            setAllActivities(fetchedAllActivites);
+        } 
+        let activityToRender = activities.find((activity) => { 
+            return Number(activityId) === Number(activity.id)
+        });
+        
+        const [name, setName] = useState(activityToRender.name);
+        const [description, setDescription] = useState(activityToRender.description);
+        const [duration, setDuration] = useState(activityToRender.duration);
+        const [count, setCount] = useState(activityToRender.count);
 
-    const editSubmit = async (event) => {
+    },[userData]);
+
+    const editAct = async (event) => {
         event.preventDefault();
 
         const data = await callApi({
@@ -40,7 +54,7 @@ const EditAct = ({token, activities, activity}) => {
 return (
     <>
     <h2>Edit Activity</h2>
-    <form onSubmit={editSubmit}>
+    <form onSubmit={editAct}>
         <div id ="TextField">
         <input type="text" placeholder="Name" value={name} onChange={(event) => setName(event.target.value)}></input>
         <input type="text" placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)}></input>
@@ -57,3 +71,6 @@ return (
 };
 
 export default EditAct;
+
+
+    

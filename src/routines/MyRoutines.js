@@ -3,8 +3,8 @@ import { Link, useNavigate} from 'react-router-dom';
 import { callApi } from '../api';
 import { MyRoutine } from '.';
 
-const MyRoutines = ({token, userData, routineId}) => {
-    const [myRoutines, setMyRoutines] = useState([]);
+const MyRoutines = ({token, userData, fetchMyRoutines, myRoutines, setMyRoutines}) => {
+   
     const navigate= useNavigate();
     
     const deleteRoutine = async ( token, routineId) => {
@@ -17,15 +17,7 @@ const MyRoutines = ({token, userData, routineId}) => {
         });     
         await fetchMyRoutines();
     }; 
-    const fetchMyRoutines = async (username, token) => {
-        const myRoutines = await callApi({
-            url: `/users/${username}/routines`,
-            method: 'GET',
-            token
-        });
-        return myRoutines;
-
-    };
+    
   
     useEffect(async () => {
         if (userData && userData.username) {
